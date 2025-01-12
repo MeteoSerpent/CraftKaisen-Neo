@@ -1,0 +1,17 @@
+{
+	"loader": "neoforge:separate_transforms",
+	"base": {
+		"parent": "craftkaisen:item/sword_of_extermination_3d"
+	},
+	"perspectives": {
+		"gui": {
+			"parent": "craftkaisen:item/sword_of_extermination_2d"
+		},
+		"ground": {
+			"parent": "craftkaisen:item/sword_of_extermination_2d"
+		},
+		"fixed": {
+			"parent": "craftkaisen:item/sword_of_extermination_2d"
+		}
+	}
+}

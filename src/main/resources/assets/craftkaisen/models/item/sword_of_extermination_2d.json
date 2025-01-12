@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "craftkaisen:item/weapons/sword_of_extermination_2d"
+	}
+}

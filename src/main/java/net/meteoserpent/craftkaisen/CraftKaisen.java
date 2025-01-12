@@ -1,5 +1,9 @@
 package net.meteoserpent.craftkaisen;
 
+import net.meteoserpent.craftkaisen.blocks.ModBlocks;
+import net.meteoserpent.craftkaisen.effects.ModEffects;
+import net.meteoserpent.craftkaisen.items.ModCreativeModeTabs;
+import net.meteoserpent.craftkaisen.items.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -39,6 +43,11 @@ public class CraftKaisen
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
+        ModEffects.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

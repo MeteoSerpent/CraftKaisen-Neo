@@ -1,0 +1,17 @@
+{
+	"loader": "neoforge:separate_transforms",
+	"base": {
+		"parent": "craftkaisen:item/inverted_spear_of_heaven_3d"
+	},
+	"perspectives": {
+		"gui": {
+			"parent": "craftkaisen:item/inverted_spear_of_heaven_2d"
+		},
+		"ground": {
+			"parent": "craftkaisen:item/inverted_spear_of_heaven_2d"
+		},
+		"fixed": {
+			"parent": "craftkaisen:item/inverted_spear_of_heaven_2d"
+		}
+	}
+}

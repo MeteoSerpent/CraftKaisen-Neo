@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "craftkaisen:cursed_technique_crafter"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "craftkaisen:blocks/cursed_technique_crafter"
+}

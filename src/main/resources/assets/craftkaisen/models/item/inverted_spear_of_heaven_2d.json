@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "craftkaisen:item/weapons/inverted_spear_of_heaven_2d"
+	}
+}
