@@ -22,8 +22,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         sukunaFingerItem();
 
-//        withExistingParent(ModItems.CURSED_COW_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
-//        withExistingParent(ModItems.CURSED_SHEEP_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.CURSED_COW_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.CURSED_SHEEP_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
     private ItemModelBuilder sukunaFingerItem() {

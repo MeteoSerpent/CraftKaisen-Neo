@@ -2,13 +2,17 @@ package net.meteoserpent.craftkaisen;
 
 import net.meteoserpent.craftkaisen.blocks.ModBlocks;
 import net.meteoserpent.craftkaisen.effects.ModEffects;
+import net.meteoserpent.craftkaisen.entity.ModEntities;
+import net.meteoserpent.craftkaisen.entity.client.CursedCowRenderer;
+import net.meteoserpent.craftkaisen.entity.client.CursedSheepRenderer;
 import net.meteoserpent.craftkaisen.items.ModCreativeModeTabs;
 import net.meteoserpent.craftkaisen.items.ModItems;
+import net.meteoserpent.craftkaisen.sounds.ModSounds;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -48,6 +52,8 @@ public class CraftKaisen
         ModBlocks.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         ModEffects.register(modEventBus);
+        ModSounds.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -80,9 +86,8 @@ public class CraftKaisen
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            EntityRenderers.register(ModEntities.CURSED_SHEEP.get(), CursedSheepRenderer::new);
+            EntityRenderers.register(ModEntities.CURSED_COW.get(), CursedCowRenderer::new);
         }
     }
 }

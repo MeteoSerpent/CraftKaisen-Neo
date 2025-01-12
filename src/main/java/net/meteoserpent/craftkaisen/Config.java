@@ -2,7 +2,6 @@ package net.meteoserpent.craftkaisen;
 
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -56,8 +55,5 @@ public class Config
         magicNumberIntroduction = MAGIC_NUMBER_INTRODUCTION.get();
 
         // convert the list of strings into a set of items
-        items = ITEM_STRINGS.get().stream()
-                .map(itemName -> BuiltInRegistries.ITEM.get(ResourceLocation.parse(itemName)))
-                .collect(Collectors.toSet());
     }
 }

@@ -1,0 +1,51 @@
+{
+  "cursed_cow_hurt": {
+    "subtitle": "sounds.craftkaisen.cursed_cow_hurt",
+    "sounds": [
+      "craftkaisen:entity/cursed_spirits/cursed_cow/hurt1",
+      "craftkaisen:entity/cursed_spirits/cursed_cow/hurt2",
+      "craftkaisen:entity/cursed_spirits/cursed_cow/hurt3"
+    ]
+  },
+  "cursed_cow_death": {
+    "subtitle": "sounds.craftkaisen.cursed_cow_death",
+    "sounds": [
+      "craftkaisen:entity/cursed_spirits/cursed_cow/hurt1",
+      "craftkaisen:entity/cursed_spirits/cursed_cow/hurt2",
+      "craftkaisen:entity/cursed_spirits/cursed_cow/hurt3"
+    ]
+  },
+  "cursed_cow_say": {
+    "subtitle": "sounds.craftkaisen.cursed_cow_say",
+    "sounds": [
+      "craftkaisen:entity/cursed_spirits/cursed_cow/say1",
+      "craftkaisen:entity/cursed_spirits/cursed_cow/say2",
+      "craftkaisen:entity/cursed_spirits/cursed_cow/say3",
+      "craftkaisen:entity/cursed_spirits/cursed_cow/say4"
+    ]
+  },
+  "cursed_sheep_hurt": {
+    "subtitle": "sounds.craftkaisen.cursed_sheep_hurt",
+    "sounds": [
+      "craftkaisen:entity/cursed_spirits/cursed_sheep/say1",
+      "craftkaisen:entity/cursed_spirits/cursed_sheep/say2",
+      "craftkaisen:entity/cursed_spirits/cursed_sheep/say3"
+    ]
+  },
+  "cursed_sheep_say": {
+    "subtitle": "sounds.craftkaisen.cursed_sheep_say",
+    "sounds": [
+      "craftkaisen:entity/cursed_spirits/cursed_sheep/say1",
+      "craftkaisen:entity/cursed_spirits/cursed_sheep/say2",
+      "craftkaisen:entity/cursed_spirits/cursed_sheep/say3"
+    ]
+  },
+  "cursed_sheep_death": {
+    "subtitle": "sounds.craftkaisen.cursed_sheep_death",
+    "sounds": [
+      "craftkaisen:entity/cursed_spirits/cursed_sheep/say1",
+      "craftkaisen:entity/cursed_spirits/cursed_sheep/say2",
+      "craftkaisen:entity/cursed_spirits/cursed_sheep/say3"
+    ]
+  }
+}

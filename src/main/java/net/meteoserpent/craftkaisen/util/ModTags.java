@@ -22,6 +22,7 @@ public class ModTags {
         public static final TagKey<Item> CURSED_TECHNIQUE = tag("cursed_technique");
         public static final TagKey<Item> POSITIVE_ENERGY = tag("positive_energy");
         public static final TagKey<Item> INFINITY_BYPASS = tag("infinity_bypass");
+        public static final TagKey<Item> BLANK = tag("blank");
 
 
         private static TagKey<Item> tag(String name) {

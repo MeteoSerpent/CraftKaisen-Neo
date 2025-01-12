@@ -12,7 +12,7 @@ public class ModDataMapProvider extends DataMapProvider {
     }
 
     @Override
-    protected void gather() {
+    protected void gather(HolderLookup.Provider provider) {
 
     }
 }
