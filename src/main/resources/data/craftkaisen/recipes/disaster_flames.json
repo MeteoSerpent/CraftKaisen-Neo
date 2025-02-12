@@ -1,0 +1,13 @@
+{
+  "type": "craftkaisen:cursed_shapeless",
+  "category": "technique",
+  "ingredients": [
+    {
+      "item": "minecraft:torch"
+    }
+  ],
+  "result": {
+    "item": "craftkaisen:disaster_flames"
+  },
+  "show_notification": true
+}

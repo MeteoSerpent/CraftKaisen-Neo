@@ -24,8 +24,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.INVERTED_SPEAR_OF_HEAVEN.get());
                         output.accept(ModItems.SWORD_OF_EXTERMINATION.get());
                         output.accept(ModItems.SPIRIT_ORB.get());
-//                        output.accept(ModItems.CURSED_COW_EGG.get());
-//                        output.accept(ModItems.CURSED_SHEEP_EGG.get());
+                        output.accept(ModItems.CURSED_COW_EGG.get());
+                        output.accept(ModItems.CURSED_SHEEP_EGG.get());
 
                         output.accept(ModBlocks.CURSED_TECHNIQUE_CRAFTER.get());
                         output.accept(ModBlocks.SUKUNA_FINGER.get());

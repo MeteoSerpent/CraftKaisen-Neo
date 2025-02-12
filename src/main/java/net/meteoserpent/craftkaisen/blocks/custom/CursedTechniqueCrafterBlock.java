@@ -1,10 +1,18 @@
 package net.meteoserpent.craftkaisen.blocks.custom;
 
+import net.meteoserpent.craftkaisen.screen.CursedMenu;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -38,20 +46,20 @@ public class CursedTechniqueCrafterBlock extends Block {
 //        super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
 //    }
 
-//    @Override
-//    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-//        if (pLevel.isClientSide) {
-//            return InteractionResult.SUCCESS;
-//        } else {
-//            pPlayer.openMenu(pState.getMenuProvider(pLevel, pPos));
-//            return InteractionResult.CONSUME;
-//        }
-//    }
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if (level.isClientSide) {
+            return InteractionResult.SUCCESS;
+        } else {
+            player.openMenu(state.getMenuProvider(level, pos));
+            return InteractionResult.CONSUME;
+        }
+    }
 
-//    public MenuProvider getMenuProvider(BlockState pState, Level pLevel, BlockPos pPos) {
-//        return new SimpleMenuProvider((p_52229_, p_52230_, p_52231_) ->
-//                new CursedMenu(p_52229_, p_52230_, ContainerLevelAccess.create(pLevel, pPos)), this.getName());
-//    }
+    public MenuProvider getMenuProvider(BlockState pState, Level pLevel, BlockPos pPos) {
+        return new SimpleMenuProvider((p_52229_, p_52230_, p_52231_) ->
+                new CursedMenu(p_52229_, p_52230_, ContainerLevelAccess.create(pLevel, pPos)), this.getName());
+    }
 
 //    @Override
 //    public @org.jetbrains.annotations.Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
@@ -62,7 +70,7 @@ public class CursedTechniqueCrafterBlock extends Block {
 //        return createTickerHelper(pBlockEntityType, ModBlockEntities.CURSED_TECHNIQUE_CRAFTER.get(),
 //                (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1));
 //    }
-//
+
 //    @Override
 //    public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
 //        return new CursedTechniqueCrafterBlockEntity(pPos, pState);

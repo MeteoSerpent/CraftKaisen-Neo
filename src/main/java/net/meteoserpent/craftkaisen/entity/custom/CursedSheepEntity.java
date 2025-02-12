@@ -12,6 +12,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.npc.AbstractVillager;
@@ -53,6 +54,7 @@ public class CursedSheepEntity extends CursedSpiritEntity implements GeoEntity {
         this.goalSelector.addGoal(3,new WaterAvoidingRandomStrollGoal(this,1));
         this.goalSelector.addGoal(5,new RandomLookAroundGoal(this));
 
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
     }
@@ -76,7 +78,7 @@ public class CursedSheepEntity extends CursedSpiritEntity implements GeoEntity {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "controller", 0, state -> {
-            if (isChasing()) {
+            if (isChasing() && !isCharging()) {
                 state.getController().setAnimationSpeed(1.4f);
             }
             else {

@@ -15,13 +15,13 @@ public class CursedSpiritEntity extends Monster {
     }
 
     @Override
-    protected void actuallyHurt(ServerLevel p_376745_, DamageSource pSource, float pAmount) {
-        ItemStack item = pSource.getWeaponItem();
+    public boolean hurtServer(ServerLevel level, DamageSource source, float damage) {
+        ItemStack item = source.getWeaponItem();
 
         if (item != null && item.is(ModTags.Items.POSITIVE_ENERGY)) {
-            pAmount *= 2;
+            damage *= 2;
         }
 
-        super.actuallyHurt(p_376745_, pSource, pAmount);
+        return super.hurtServer(level, source, damage);
     }
 }

@@ -4,9 +4,13 @@ import net.meteoserpent.craftkaisen.blocks.ModBlocks;
 import net.meteoserpent.craftkaisen.effects.ModEffects;
 import net.meteoserpent.craftkaisen.entity.ModEntities;
 import net.meteoserpent.craftkaisen.entity.client.CursedCowRenderer;
+import net.meteoserpent.craftkaisen.entity.client.CursedCowShotRenderer;
 import net.meteoserpent.craftkaisen.entity.client.CursedSheepRenderer;
 import net.meteoserpent.craftkaisen.items.ModCreativeModeTabs;
 import net.meteoserpent.craftkaisen.items.ModItems;
+import net.meteoserpent.craftkaisen.recipe.ModRecipeCategories;
+import net.meteoserpent.craftkaisen.recipe.ModRecipes;
+import net.meteoserpent.craftkaisen.screen.ModMenuTypes;
 import net.meteoserpent.craftkaisen.sounds.ModSounds;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import org.slf4j.Logger;
@@ -54,6 +58,9 @@ public class CraftKaisen
         ModEffects.register(modEventBus);
         ModSounds.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
+        ModRecipeCategories.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -88,6 +95,8 @@ public class CraftKaisen
         {
             EntityRenderers.register(ModEntities.CURSED_SHEEP.get(), CursedSheepRenderer::new);
             EntityRenderers.register(ModEntities.CURSED_COW.get(), CursedCowRenderer::new);
+            EntityRenderers.register(ModEntities.CURSED_COW_SHOT.get(), CursedCowShotRenderer::new);
+
         }
     }
 }

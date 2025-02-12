@@ -11,6 +11,7 @@ public class CursedSheepChargeGoal extends Goal {
     private final float runSpeed;
     private final int dist;
     private final float walkSpeed;
+    private float currentSpeed = 0;
     private int chargeDelay;
     private int timer = 0;
     private boolean moving;
@@ -35,8 +36,8 @@ public class CursedSheepChargeGoal extends Goal {
         super.start();
         this.mob.setAggressive(true);
         this.chargeDelay = 20;
-        this.timer = 0;
         this.moving = false;
+        this.currentSpeed = walkSpeed;
         this.mob.setChasing(true);
     }
 
@@ -51,14 +52,15 @@ public class CursedSheepChargeGoal extends Goal {
 
         LivingEntity entity = this.mob.getTarget();
 
-        if (haveEntity(entity)) {
+        if (isValidTarget()) {
 
             moveToTarget(entity);
 
             if(entityInRange(entity)) {
 
                 if (timeToStart()) {
-                    timerStart(35);
+                    timerStart(40);
+                    this.currentSpeed = 0;
                     this.mob.setIsCharging(true);
                 }
 
@@ -95,11 +97,12 @@ public class CursedSheepChargeGoal extends Goal {
     private void moveToTarget(LivingEntity entity) {
         if (charging()) {return;}
 
-        this.mob.getNavigation().moveTo(entity, walkSpeed);
+        this.mob.getNavigation().moveTo(entity, currentSpeed);
     }
 
     private void end() {
         this.mob.getNavigation().stop();
+        this.currentSpeed = walkSpeed;
         moving = false;
     }
 
@@ -107,7 +110,6 @@ public class CursedSheepChargeGoal extends Goal {
         if (this.mob.getBoundingBox().intersects(entity.getBoundingBox())) {
             this.mob.doHurtTarget(getServerLevel(entity.level()), entity);
             this.mob.setIsCharging(false);
-            this.moving = false;
 
 
             Vec3 vec3 = entity.position();
@@ -118,6 +120,7 @@ public class CursedSheepChargeGoal extends Goal {
             this.mob.setDeltaMovement(vec3.scale(-0.5));
 
             timerStart(chargeDelay);
+            end();
         }
     }
 
@@ -165,11 +168,7 @@ public class CursedSheepChargeGoal extends Goal {
     }
 
     private boolean entityInRange(LivingEntity entity) {
-        return this.mob.distanceTo(entity) < dist;
-    }
-
-    private boolean haveEntity(LivingEntity entity) {
-        return entity != null;
+        return (this.mob.distanceTo(entity) < dist) || charging();
     }
 
 
@@ -181,6 +180,7 @@ public class CursedSheepChargeGoal extends Goal {
     public void stop() {
         this.mob.setIsCharging(false);
         this.mob.setChasing(false);
+        this.mob.setAggressive(false);
         super.stop();
     }
 }

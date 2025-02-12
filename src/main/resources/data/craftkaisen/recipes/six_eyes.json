@@ -1,0 +1,16 @@
+{
+  "type": "craftkaisen:cursed_shaped",
+  "category": "technique",
+  "key": {
+    "#":  "minecraft:spider_eye"
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "craftkaisen:six_eyes"
+  },
+  "show_notification": true
+}

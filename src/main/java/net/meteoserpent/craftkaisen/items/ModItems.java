@@ -40,7 +40,7 @@ public class ModItems {
             ()-> new SwordItem(ModToolsTier.CURSED_TOOL,3, -2.4f, propertiesHelper("inverted_spear_of_heaven")));
 
     public static final DeferredItem<Item> SWORD_OF_EXTERMINATION = ITEMS.register("sword_of_extermination",
-            ()-> new SwordItem(ModToolsTier.CURSED_TOOL, 3, -2.4f, propertiesHelper("sword_of_extermination")));
+            ()-> new SwordItem(ModToolsTier.CURSED_TOOL, 3, -2.4f, propertiesHelper("sword_of_extermination")) );
 
 
     public static final DeferredItem<Item> DISASTER_FLAMES = ITEMS.register("disaster_flames",

@@ -4,12 +4,15 @@ import net.meteoserpent.craftkaisen.CraftKaisen;
 import net.meteoserpent.craftkaisen.effects.ModEffects;
 import net.meteoserpent.craftkaisen.entity.ModEntities;
 import net.meteoserpent.craftkaisen.entity.custom.CursedSheepEntity;
+import net.meteoserpent.craftkaisen.screen.CursedTechniqueCrafterScreen;
+import net.meteoserpent.craftkaisen.screen.ModMenuTypes;
 import net.meteoserpent.craftkaisen.util.ModTags;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
@@ -47,5 +50,10 @@ class ModBusEvents {
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.CURSED_COW.get(), CursedSheepEntity.setAttributes().build());
         event.put(ModEntities.CURSED_SHEEP.get(), CursedSheepEntity.setAttributes().build());
+    }
+
+    @SubscribeEvent
+    public static void registerMenu(RegisterMenuScreensEvent event) {
+        event.register(ModMenuTypes.CURSED_MENU.get(), CursedTechniqueCrafterScreen::new);
     }
 }
